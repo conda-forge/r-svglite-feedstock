@@ -1,53 +1,68 @@
 {% set version = '1.2.1' %}
-
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-svglite
-  version: {{ version }}
+  version: {{ version|replace("-", "_") }}
 
 source:
   fn: svglite_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/svglite_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/svglite_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/svglite/svglite_{{ version }}.tar.gz
   sha256: a174f7959c2dcc3e5d20fee76d98997e10e623a48a9ef643b0145248181d9aaf
 
 build:
+  merge_build_host: True  # [win]
   number: 0
   skip: true  # [win]
-
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
-    - gcc
-    - toolchain3
+    - {{ compiler('c') }}        # [not win]
+    - {{ compiler('cxx') }}      # [not win]
+    - {{native}}toolchain        # [win]
+    - {{posix}}filesystem        # [win]
+    - {{posix}}make
+    - {{posix}}sed               # [win]
+    - {{posix}}coreutils         # [win]
+    - {{posix}}zip               # [win]
+  host:
     - r-base
-    - r-rcpp
-    - r-gdtools
     - r-bh
-
+    - r-rcpp
+    - r-gdtools >=0.1.6
   run:
     - r-base
+    - {{native}}gcc-libs         # [win]
+    - r-bh
     - r-rcpp
-    - r-gdtools
+    - r-gdtools >=0.1.6
 
 test:
   commands:
-    - $R -e "library('svglite')"  # [not win]
+    - $R -e "library('svglite')"           # [not win]
     - "\"%R%\" -e \"library('svglite')\""  # [win]
 
 about:
-  home: https://cran.r-project.org/web/packages/svglite/index.html
-  license: GPL-3
-  summary: A graphics device for R that uses the w3.org xml standard for Scalable Vector Graphics.
+  home: https://github.com/r-lib/svglite
+  license: GPL (>= 2)
+  summary: A graphics device for R that produces 'Scalable Vector Graphics'. 'svglite' is a fork
+    of the older 'RSvgDevice' package.
   license_family: GPL3
   license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'  # [unix]
   license_file: '{{ environ["PREFIX"] }}\R\share\licenses\GPL-3'  # [win]
 
 extra:
   recipe-maintainers:
-    - Cashalow
+    - sachalau
+    - johanneskoester
+    - bgruening
+    - daler
+    - jdblischak
+    - cbrueffer
+    - dbast
