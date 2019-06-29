@@ -1,4 +1,4 @@
-{% set version = '1.2.1' %}
+{% set version = '1.2.2' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -7,25 +7,25 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: svglite_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/svglite_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/svglite/svglite_{{ version }}.tar.gz
-  sha256: a174f7959c2dcc3e5d20fee76d98997e10e623a48a9ef643b0145248181d9aaf
+  sha256: 24bcbd891a1398ae92371ed944b23b474b5b0c8e7aab979ca8ef9a8b79289bbf
 
 build:
   merge_build_host: True  # [win]
-  number: 1000
   skip: true  # [win]
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
-    - {{ compiler('c') }}        # [not win]
-    - {{ compiler('cxx') }}      # [not win]
-    - {{native}}toolchain        # [win]
+    - {{ compiler('c') }}              # [not win]
+    - {{ compiler('m2w64_c') }}        # [win]
+    - {{ compiler('cxx') }}            # [not win]
+    - {{ compiler('m2w64_cxx') }}      # [win]
     - {{posix}}filesystem        # [win]
     - {{posix}}make
     - {{posix}}sed               # [win]
@@ -54,14 +54,31 @@ about:
   summary: A graphics device for R that produces 'Scalable Vector Graphics'. 'svglite' is a fork
     of the older 'RSvgDevice' package.
   license_family: GPL3
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
 
 extra:
   recipe-maintainers:
     - sachalau
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
-    - cbrueffer
-    - dbast
+    - conda-forge/r
+
+# Package: svglite
+# Version: 1.2.2
+# Title: An 'SVG' Graphics Device
+# Description: A graphics device for R that produces 'Scalable Vector Graphics'. 'svglite' is a fork of the older 'RSvgDevice' package.
+# Authors@R: c( person("Hadley", "Wickham", , "hadley@rstudio.com", "aut"), person("Lionel", "Henry", , "lionel@rstudio.com", c("aut", "cre")), person("T Jake", "Luciani", , "jake@apache.org", "aut"), person("Matthieu", "Decorde", , "matthieu.decorde@ens-lyon.fr", "aut"), person("Vaudor", "Lise", , "lise.vaudor@ens-lyon.fr", "aut"), person("Tony", "Plate", role = "ctb", comment = "Early line dashing code"), person("David", "Gohel", role = "ctb", comment = "Line dashing code and raster code"), person("Yixuan", "Qiu", role = "ctb", comment = "Improved styles; polypath implementation"), person("Hakon", "Malmedal", role = "ctb", comment = "Opacity code"), person("RStudio", role = "cph") )
+# Encoding: UTF-8
+# Depends: R (>= 3.0.0)
+# Imports: Rcpp, gdtools (>= 0.1.6)
+# LinkingTo: Rcpp, gdtools, BH
+# Suggests: htmltools, testthat, xml2 (>= 1.0.0), covr, fontquiver (>= 0.2.0), knitr, rmarkdown
+# License: GPL (>= 2)
+# URL: https://github.com/r-lib/svglite
+# BugReports: https://github.com/r-lib/svglite/issues
+# RoxygenNote: 6.0.1
+# VignetteBuilder: knitr
+# NeedsCompilation: yes
+# Packaged: 2019-05-17 17:26:44 UTC; lionel
+# Author: Hadley Wickham [aut], Lionel Henry [aut, cre], T Jake Luciani [aut], Matthieu Decorde [aut], Vaudor Lise [aut], Tony Plate [ctb] (Early line dashing code), David Gohel [ctb] (Line dashing code and raster code), Yixuan Qiu [ctb] (Improved styles; polypath implementation), Hakon Malmedal [ctb] (Opacity code), RStudio [cph]
+# Maintainer: Lionel Henry <lionel@rstudio.com>
+# Repository: CRAN
+# Date/Publication: 2019-05-17 17:50:03 UTC
