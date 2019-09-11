@@ -38,7 +38,7 @@ requirements:
   run:
     - r-base
     - {{native}}gcc-libs         # [win]
-    - # BH is the header-only part of Boost and thus a compile-time requirement only
+    # BH is the header-only part of Boost and thus a compile-time requirement only
     # - r-bh
     - r-rcpp
     - r-gdtools >=0.1.6
