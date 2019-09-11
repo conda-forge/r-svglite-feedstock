@@ -13,7 +13,7 @@ source:
   sha256: 24bcbd891a1398ae92371ed944b23b474b5b0c8e7aab979ca8ef9a8b79289bbf
 
 build:
-  number: 2
+  number: 3
   merge_build_host: True  # [win]
   rpaths:
     - lib/R/lib/
@@ -38,7 +38,8 @@ requirements:
   run:
     - r-base
     - {{native}}gcc-libs         # [win]
-    - r-bh
+    - # BH is the header-only part of Boost and thus a compile-time requirement only
+    # - r-bh
     - r-rcpp
     - r-gdtools >=0.1.6
 
