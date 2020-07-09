@@ -1,4 +1,4 @@
-{% set version = "1.2.3" %}
+{% set version = "1.2.3.2" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/svglite_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/svglite/svglite_{{ version }}.tar.gz
-  sha256: d48bc787cfbc05c59602584465813ce216db600c2e063633ecaddf10d7f43bfe
+  sha256: 25d60779cc81aac6d13499e4dc59fd46f013889a4c904d0404f4451ac95bc802
 
 build:
-  number: 1
-  merge_build_host: True  # [win]
+  number: 0
+  merge_build_host: true  # [win]
   rpaths:
     - lib/R/lib/
     - lib/
@@ -51,10 +51,9 @@ test:
 about:
   home: https://github.com/r-lib/svglite
   license: GPL (>= 2)
-  summary: A graphics device for R that produces 'Scalable Vector Graphics'. 'svglite' is a fork
-    of the older 'RSvgDevice' package.
+  summary: A graphics device for R that produces 'Scalable Vector Graphics'. 'svglite' is a fork of the older 'RSvgDevice' package.
   license_family: GPL3
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
+  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
 
 extra:
   recipe-maintainers:
