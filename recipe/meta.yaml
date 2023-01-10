@@ -37,6 +37,7 @@ requirements:
     - r-base
     - r-cpp11
     - r-systemfonts >=1.0.0
+    - libpng                       # [not win]
   run:
     - r-base
     - {{ native }}gcc-libs         # [win]
