@@ -1,13 +1,17 @@
 About r-svglite
 ===============
 
-Home: https://github.com/r-lib/svglite
+Home: https://svglite.r-lib.org
 
 Package license: GPL-2.0-or-later
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-svglite-feedstock/blob/main/LICENSE.txt)
 
 Summary: A graphics device for R that produces 'Scalable Vector Graphics'. 'svglite' is a fork of the older 'RSvgDevice' package.
+
+Development: https://github.com/r-lib/svglite
+
+Documentation: https://svglite.r-lib.org/reference/index.html
 
 Current build status
 ====================
