@@ -46,7 +46,9 @@ test:
     - "\"%R%\" -e \"library('svglite')\""  # [win]
 
 about:
-  home: https://github.com/r-lib/svglite
+  home: https://svglite.r-lib.org
+  dev_url: https://github.com/r-lib/svglite
+  doc_url: https://svglite.r-lib.org/reference/index.html
   license: GPL-2.0-or-later
   summary: A graphics device for R that produces 'Scalable Vector Graphics'. 'svglite' is a fork of the older 'RSvgDevice' package.
   license_family: GPL3
