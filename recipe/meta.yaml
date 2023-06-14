@@ -13,7 +13,7 @@ source:
   sha256: 48700169eec1b05dbee9e2bae000aa84c544617b018cb3ac431a128cfd8dac56
 
 build:
-  number: 0
+  number: 1
   merge_build_host: true  # [win]
   rpaths:
     - lib/R/lib/
@@ -62,4 +62,3 @@ about:
 extra:
   recipe-maintainers:
     - conda-forge/r
-    - sachalau
