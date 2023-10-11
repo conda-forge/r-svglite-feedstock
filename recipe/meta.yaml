@@ -1,4 +1,4 @@
-{% set version = "2.1.1" %}
+{% set version = "2.1.2" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,10 +10,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/svglite_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/svglite/svglite_{{ version }}.tar.gz
-  sha256: 48700169eec1b05dbee9e2bae000aa84c544617b018cb3ac431a128cfd8dac56
+  sha256: c2c163e17de8174408062b969a1fc298aa1dba957dc0acc1c898384bb76c0030
 
 build:
-  number: 1
+  number: 0
   merge_build_host: true  # [win]
   rpaths:
     - lib/R/lib/
