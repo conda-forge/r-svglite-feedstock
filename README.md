@@ -3,6 +3,7 @@ About r-svglite-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-svglite-feedstock/blob/main/LICENSE.txt)
 
+
 About r-svglite
 ---------------
 
@@ -15,6 +16,7 @@ Summary: A graphics device for R that produces 'Scalable Vector Graphics'. 'svgl
 Development: https://github.com/r-lib/svglite
 
 Documentation: https://svglite.r-lib.org/reference/index.html
+
 About r-svglite
 ---------------
 
