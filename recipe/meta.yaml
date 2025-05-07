@@ -1,4 +1,4 @@
-{% set version = "2.1.3" %}
+{% set version = "2.2.0" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/svglite_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/svglite/svglite_{{ version }}.tar.gz
-  sha256: f0a8564e6f9127f4d1e05cf5a5f36b4e244aee0008e27473e504c63873ef0a54
+  sha256: 62dbae66d96effaade40c5b45a9ee9c7fffe5272ebe5f0d40374c6e53bd5172b
 
 build:
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
