@@ -52,6 +52,7 @@ requirements:
     - r-rlang >=1.1.0
     - r-systemfonts >=1.2.3
     - r-textshaping >=0.3.0
+    - zlib
     - libpng                       # [not win]
   run:
     - r-base
